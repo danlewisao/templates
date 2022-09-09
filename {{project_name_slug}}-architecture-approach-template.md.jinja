@@ -1,0 +1,137 @@
+# {{title}}
+
+Version: {{version}}
+
+Date: {{ '%Y-%m-%d' | strftime }}
+
+Status: **{{status}}** e.g Working Draft > Proposed Recommendation > Recommendation
+
+New Idea: [Number/Name](link/url)
+
+# Document Control
+
+| Title     | Document Author | Product Manager          |
+|-----------|-----------------|--------------------------|
+| {{title}} | {{author_name}} | {{product_manager_name}} |
+
+# Change History
+
+{% if include_guidance %}
+NOTE: Change history should be kept simple. It should not reflect git commit history!
+Rather, keep versions to draft version, recommendation version and recommendation revisions.
+{% endif %}
+
+| Version     | Status     | Author/Editor   | Change (brief summary of change) |
+|-------------|------------|-----------------|----------------------------------|
+| {{version}} | {{status}} | {{author_name}} | Initial version                  |
+
+# Contents
+
+- [{{title}}](#title)
+- [Document Control](#document-control)
+- [Change History](#change-history)
+- [Contents](#contents)
+- [Project Approach](#project-approach)
+  - [Current problem](#current-problem)
+  - [Options](#options)
+    - [Options Summary](#options-summary)
+    - [Option 1](#option-1)
+      - [Summary](#summary)
+      - [Value](#value)
+      - [Cost](#cost)
+    - [Preferred Option](#preferred-option)
+  - [Supporting Strategy](#supporting-strategy)
+
+# Project Approach
+
+## Current problem
+
+{% if include_guidance %}
+
+A short, concise description of problem/requirement and why we are looking at the project solution.
+
+[Optional] C4 context diagram
+
+{% endif %}
+
+## Options
+
+### Options Summary
+
+A short, concise description of the options under the proposal. (Ideally 3+)
+
+- ***option 1***; {description}
+- ***option 2***; {description}
+- ***option 3***; {description}
+
+### Option 1
+
+#### Summary
+
+Summary of the option at a high level.
+
+[Optional] C4 Container diagram
+
+NOTE: Please include a description of the type of data the solution/project requires and where it is likely to be hosted.
+
+NOTE: Please include a guesstimate description of the resource profile (the scale of it, which teams, internal/external, and associated timescales)
+
+#### Value
+
+***For***:
+
+- x
+- y
+- z
+
+***Against***:
+
+- x
+- y
+- z
+
+#### Cost
+
+Include product cost, estimated implementation costs, and if the product/solution has any onerous running costs.
+
+Justify deviation from A&Os existing panel of suppliers versus RFQ/RFP.
+
+NOTE: do not approach multiple suppliers for costs outside of a procurement process (an RFP is required). Multiple supplier costs should be indicative only. (e.g list price versus negotiated prices)
+
+***For***:
+
+Is the cost under the estimated budget?
+
+- x
+- y
+- z
+
+***Against***:
+
+Is the cost over the estimated budget?
+
+- x
+- y
+- z
+
+### Preferred Option
+
+A description of the preferred option describing the trade-offs between cost and value.
+
+Consider quantitative metrics such as:
+
+- feature match
+- quality attributes; safety, efficiency, performance,maintainability, scalability, usability, and reliability
+- cost
+- security
+- availability
+- time to market
+- risk
+- tech debt
+- strategic fit
+
+## Supporting Strategy
+
+| A&O Strategy (Technical Strategy gains / Etc) | Description                     |
+|-----------------------------------------------|---------------------------------|
+| {Simplification\Data\Etc} {description}       | {description of technical debt} |

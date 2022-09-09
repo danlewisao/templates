@@ -1,0 +1,56 @@
+# set jinja2 templating options
+_envops:
+    trim_blocks: true
+    lstrip_blocks: true
+
+# Questions
+project_name:
+  type: str
+  help: Project Name?
+  default: # empty default forces an answer
+
+# Make it easier to reuse project name slug across template expressions
+project_name_slug:
+ type: str
+ default: "{{ project_name | lower | replace(' ', '-') }}"
+ when: false # hack to disable prompt
+
+include_infosec_risk_assessment:
+  type: bool
+  help: Include the Infosec Risk Grid docker image?
+  default: y
+
+include_infosec_risk_grid:
+  type: bool
+  help: Include the Infosec Risk Grid docker image?
+  default: y
+
+include_guidance:
+  type: bool
+  help: Include template guidance text?
+  default: y
+
+author_name:
+  type: str
+  help: "Type Document author name"
+  placeholder: First Last <first.last@allenovery.com>
+
+product_manager_name:
+  type: str
+  help: "Product Manager/Owner name"
+  placeholder: First Last <first.last@allenovery.com>
+
+title:
+  type: str
+  default: "Architecture Approach Document for {{ project_name }}" 
+  when: false # hack to disable prompt
+
+status:
+  type: str
+  default: "**Working Draft**"
+  when: false # hack to disable prompt
+
+version:
+  type: str
+  default: "0.0.1"
+  when: false # hack to disable prompt

@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "yzhang.markdown-all-in-one",
+        "shd101wyy.markdown-preview-enhanced",
+        "darkriszty.markdown-table-prettify",
+        "davidanson.vscode-markdownlint",
+        "jebbs.plantuml",
+        "marvhen.reflow-markdown"
+    ]
+}

@@ -1,0 +1,244 @@
+# Guidance Notes for the completion of an Information Security Risk Assessment
+
+- [Guidance Notes for the completion of an Information Security Risk Assessment](#guidance-notes-for-the-completion-of-an-information-security-risk-assessment)
+  - [Document Naming Convention](#document-naming-convention)
+  - [Template Page 1 (Description Page)](#template-page-1-description-page)
+    - [Risk Assessor](#risk-assessor)
+    - [IS Evaluator](#is-evaluator)
+    - [Solution Under Assessment](#solution-under-assessment)
+    - [Risk Level](#risk-level)
+    - [Description](#description)
+    - [Data Present](#data-present)
+  - [Information Security Risk Summary](#information-security-risk-summary)
+    - [Risk Grid](#risk-grid)
+    - [Risk Level](#risk-level-1)
+    - [Highest Risk Score](#highest-risk-score)
+  - [Assessed Risks](#assessed-risks)
+    - [Risk ID](#risk-id)
+    - [Risk](#risk)
+    - [Likelihood](#likelihood)
+    - [Risk](#risk-1)
+    - [Impact](#impact)
+  - [Recommended Controls](#recommended-controls)
+    - [Control Id](#control-id)
+    - [Risk Id](#risk-id-1)
+    - [Residual Likelihood](#residual-likelihood)
+    - [Residual Impact](#residual-impact)
+    - [Residual Risk Score](#residual-risk-score)
+  - [Risk Treatment Recommendation](#risk-treatment-recommendation)
+  - [Risk Owners](#risk-owners)
+  - [Guidance on Risk Assessment](#guidance-on-risk-assessment)
+
+The Information Security Risk Assessment process is designed to evaluate the risks associated with a
+technology or process, and outline the compensating controls which could be implemented to mitigate the
+associated risks. The intention of this process is to inform decisions to be reached that balance business
+benefit with the potential impact of an information security breach. These decisions could be to implement
+one or more of the identified controls to mitigate the risk, to accept the risks as presented, or to no longer
+proceed with the technology solution or process.
+
+This document provides guidance on the completion of Information Security Risk Assessments, which fields
+are required to be completed by the Assessor and the information required at each point. It is important to
+note that the Information Risk Assessment method of completion is in most cases a non-linear process, and
+information from sections later in the document may be required to complete earlier sections/fields.
+It is suggested that the Assessment is completed in the following order:
+
+- Template page 1 (Description Page)
+- Template page 3 (Assessed Risks)
+- Template page 2 (IS Risk Summary)
+- Template page 5 (Risk Treatment Recommendation)
+- Template page 4 (Recommended Controls)
+
+## Document Naming Convention
+To ensure that the Risk Assessments are named consistently, please use the following format:
+
+information-security-risk-assessment-{solution-name}.md
+
+{solution-name}-information-security-risk-assessment-architecture.md
+
+Example:
+
+plantuml-information-security-risk-assessment-architecture
+
+
+## Template Page 1 (Description Page)
+The first page of the risk assessment details the solution or process under assessment, and the data types
+involved within the description. This also documents who is conducting the assessment, and the Information
+Security analyst who is providing oversight for the assessment.
+
+### Risk Assessor
+This is the person who is populating information within the risk assessment document. Ideally they will
+have in depth knowledge of the solution / process under assessment, and a developed understanding of what
+constitutes an information security risk with a justified scoring of each risk. The Assessor will also need to
+be able to identify potential compensating controls which could feasibly be implemented to reduce the risk.
+
+### IS Evaluator
+The Information Security (IS) evaluator is the member of the information security team providing oversight
+and guidance for the risk assessment. The role of the IS Evaluator is to validate the assessed risks, provide
+guidance on risk scoring, add supplementary or missing risks as perceived and provide oversee the
+completion of the Cover Page Risk Level field and the IS Risk Summary Field.
+
+### Solution Under Assessment
+This identifies the technology or process that is under assessment. This technology or process may be a
+single significant part of a solution which is of sufficient information security concern.
+
+### Risk Level
+This is the risk level of the highest scoring risk, as identified in the “IS Risk Summary” and “Assessed
+Risks” sections. This can be either LOW, MEDIUM or HIGH.
+
+### Description
+This is a bullet point list of descriptions of the technology or process. These points should cover what the
+technology or solution does, why it is being adopted, where it is located and who are the end users and
+administrators.
+
+### Data Present
+This field is a bullet point list of the data that the technology or process collects, uses or has access to. The
+description of data here should state whether the following recognised types of data are present in the
+solution and if so, an estimate of the data volume where possible:
+
+- Client Data
+- PII
+- Organisational
+- Public
+
+The description should also include the classification of data as recognised in the A&O Data Classification
+Policy. The four levels of data classification are:
+
+- Sensitive
+- Highly Restricted
+- Restricted
+- Public
+
+## Information Security Risk Summary
+This page is a summary of the highest risk level which has been identified on the Assessed Risk section of
+the document. This presents the highest level risk(s) in graphical form within a risk grid (Impact x
+Likelihood), and a description of the highest scoring risk.
+
+### Risk Grid
+The risk grid shows the highest scoring risk score from the Assessed Risk section in a graphical format. To
+complete this section, place a “X” within the grid, where the likelihood and impact scores intersect.
+Example: If a risk has been scored with a Likelihood of 3 and an Impact of 4, the risk grid should be
+completed as below:
+
+Example:
+
+![Risk Grid Example](./assets/img/risk_grid.png)
+
+Note: You can generate the Risk Grid by using the [Risk Grid Tool](https://dev.azure.com/allenovery/_git/Architecture%20Data%20and%20Engineering?path=%2Farchitecture%2Ftools%2Frisk-grid%2FREADME.md). This tool extracts the likelihood and impact scores and generates the risk summary image grid using python and [matplotlib](https://matplotlib.org/).
+
+### Risk Level
+This is determined by the risk score of the highest scoring risk and where it lays on the grid. Risks are
+classified as HIGH if the score is above 15, MEDIUM if the score is between greater than 4, and LOW if the
+risk score is lower than 4.
+
+### Highest Risk Score
+This is the risk score of the highest scoring risk as taken from the Assessed Risk section.
+
+## Assessed Risks
+This section lists all risks within a table, providing a description and a scoring of the risk. There are five
+column headings which determine the information entered in each field.
+
+The assessed risk are the inherent risks that exists in the absence of controls.
+
+### Risk ID
+The risk ID is a unique identifier assigned to each assessed risk. The format for each identifier is “R-”
+followed by two digits. For example, the fifth assessed risk would have the identifier “R-05”.
+
+### Risk
+The risk field of each row provides a detailed description of each risk. Each description should describe how
+a threat (such as a hacker) could exploit a vulnerability (such as a software fault) to impact the
+solution/process and any associated data. It is important to note that threats could also be physical,
+environmental or societal in nature, as could vulnerabilities.
+
+### Likelihood
+This field is a numeric value of between 1 and 5, with a higher value expressing the increased likelihood of
+the risk materialising. The values indicate probabilities as below:
+
+1 = A less than 10% chance that the risk will occur.
+2 = A greater than 10%, less than 20% chance that the risk will occur.
+3 = A greater than 20%, less than 40% chance that the risk will occur.
+4 = A greater than 40%, less than 70% chance that the risk will occur.
+5 = A greater than 70% chance that the risk will occur.
+
+### Risk
+The assessed risk is the inherent risk score that exists in the absence of controls.
+Calculated as follows:
+
+Likelihood (probability) * Impact == Risk
+
+### Impact
+This field is a numeric value between 1 and 5, with a higher value expressing the weight of impact to A&O
+if the risk materialised. It acts as an estimate of the potential losses associated with an identified risk.
+
+The following are common types of impact that should be considered 
+
+- Health & Safety; safety or health risks related to the activity
+- Quality of Life; impact a design might have
+- Sustainability; risks to the environment
+- Financial; loss of revenue, costs and expense
+- Time; and cost 
+- Reputation; brand value etc
+
+## Recommended Controls
+This section lists all the controls that will be put in place to mitigate the assessed risks, providing a description of the control and a scoring for residual likelihood, impact and the risk. 
+
+It is assumed that the residual scores after the controls are put in place will bring the risk score down. 
+
+There are six column headings which describe a control and how it mitigates a risk. There need not be a one to one control to risk mapping. In some cases multiple controls will be put in place to mitigate a risk.
+
+### Control Id
+The control ID is a unique identifier assigned to each control put in place to mitigate a particular Information security risk
+
+### Risk Id
+The risk ID is a unique identifier assigned to each assessed risk. The Risk Id must link a control to a risk that exists in the assessed risk table.
+
+### Residual Likelihood
+The residual likelihood should indicate the likelihood of an information security risk after the control is applied. In most cases the residual likelihood will decrease the linked risk likelihood.
+
+This field is a numeric value of between 1 and 5, with a higher value expressing the increased likelihood of the risk materialising. The values indicate the below
+
+1 = A less than 10% chance that the risk will occur.
+2 = A greater than 10%, less than 20% chance that the risk will occur.
+3 = A greater than 20%, less than 40% chance that the risk will occur.
+4 = A greater than 40%, less than 70% chance that the risk will occur.
+5 = A greater than 70% chance that the risk will occur.
+
+### Residual Impact
+This field is a numeric value between 1 and 5, with a higher value expressing the weight of impact to A&O
+if the risk materialised. It acts as an estimate of the potential losses associated with an identified risk.
+
+It is likely that that residual impact will be identical to the linked risk if there is a one to one mapping.
+However, if a risk is controlled and mitigated by multiple controls the residual impact may need to be
+split.
+
+### Residual Risk Score
+The residual risk score is the amount of risk that remains after controls are accounted for.
+Calculated as follows:
+
+Residual Likelihood (probability) * Residual Impact == Residual Risk
+
+## Risk Treatment Recommendation
+
+A table to identify the action to take with the set of risks and controls.
+
+- Mitigate: Accept with specified controls in place to reduce the likelihood or impact of risk
+- Accept: without control, acknowledge the risk and choose not to resolve, transfer or mitigate
+- Transfer: the risk to a third-party via a liability insurance
+- Avoid: completely eliminate or forego the risk
+
+| Mitigate | Accept | Transfer | Avoid |
+|----------|--------|----------|-------|
+|          |        |          |       |
+
+## Risk Owners
+
+This should be the IT function that owns the identified risk. 
+
+i.e. a risk mitigated by a PrivateLink network endpoint could be owned/managed by the A&O Cloud Ops / Infrastructure team. 
+
+## Guidance on Risk Assessment
+
+See accompanying PDF document, 'Threat Modelling Frameworks' that explores:
+
+- STRIDE
+- OWASP TOP 10
+- MITRE ATT&CK

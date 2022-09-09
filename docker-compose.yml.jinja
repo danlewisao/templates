@@ -1,0 +1,28 @@
+version: '3.2'
+
+services:
+  {% if include_infosec_risk_assessment %}
+  architecture.risk-grid:
+    image: 
+      aoitcr.azurecr.io/architecture/ao.architecture.risk-grid:latest
+    container_name:
+      {{project_name_slug}}-architecture-risk-grid
+    volumes:
+      - ./assets/risk_md_table/risk_table.md:/grid/table/risk_table.md
+      - ./assets/risk_md_table/risk_control_table.md:/grid/table/risk_control_table.md
+      - ./assets/risk_grid:/grid/out
+  {% endif %}
+
+  architecture.markdown-pre-processor:
+    image: 
+      aoitcr.azurecr.io/architecture/ao.architecture.markdown-pre-processor:latest
+    container_name:
+      {{project_name_slug}}-architecture-markdown-pre-processor
+    volumes:
+      - ./{{project_name_slug}}-architecture-approach-template.md:/architecture/{{project_name_slug}}-architecture-approach-template.md
+      - ./{{project_name_slug}}-architecture-design-template.md:/architecture/{{project_name_slug}}-architecture-design-template.md
+      {% if include_infosec_risk_assessment %}
+      - ./{{project_name_slug}}-risk-assessment-architecture-template.md:/architecture/{{project_name_slug}}-risk-assessment-architecture-template.md
+      {% endif %}
+      - ./generated:/architecture/generated
+      - ./assets:/architecture/assets

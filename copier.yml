@@ -17,12 +17,12 @@ project_name_slug:
 
 include_infosec_risk_assessment:
   type: bool
-  help: Include the Infosec Risk Grid docker image?
+  help: Include the Infosec Risk Assessment?
   default: y
 
 include_infosec_risk_grid:
   type: bool
-  help: Include the Infosec Risk Grid docker image?
+  help: Include the Infosec Risk Grid?
   default: y
 
 include_guidance:
